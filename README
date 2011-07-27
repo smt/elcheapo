@@ -1,0 +1,3 @@
+The rails app is called elcheapo. It is responsible for authenticating a
+user via the Twitter API and allowing him/her to add content to display
+on the screen of the TV.
