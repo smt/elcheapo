@@ -1,10 +1,17 @@
 class User
   include Mongoid::Document
+  include Mongoid::Paperclip
   field :provider, :type => String
   field :uid, :type => String
   field :name, :type => String
   field :email, :type => String
   attr_accessible :provider, :uid, :name, :email
+
+  has_mongoid_attached_file :avatar,
+    :styles => {
+      :thumb => "100x100#",
+      :small => "150x150>",
+      :medium => "200x200" }
 
   def self.create_with_omniauth(auth)
     create! do |user|

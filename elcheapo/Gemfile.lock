@@ -32,6 +32,10 @@ GEM
       multi_json (~> 1.0)
     addressable (2.2.4)
     arel (2.1.4)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     bcrypt-ruby (2.1.4)
     bson (1.3.1)
     bson_ext (1.3.1)
@@ -45,6 +49,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.2.0)
       ffi (~> 1.0.6)
+    cocaine (0.1.0)
     coffee-rails (3.1.0.rc.5)
       actionpack (~> 3.1.0.rc1)
       coffee-script (>= 2.2.0)
@@ -105,6 +110,8 @@ GEM
       activemodel (~> 3.0)
       mongo (~> 1.3)
       tzinfo (~> 0.3.22)
+    mongoid-paperclip (0.0.5)
+      paperclip (~> 2.3.6)
     mongoid-rspec (1.4.4)
       mongoid (~> 2.0)
       rspec (~> 2)
@@ -150,6 +157,11 @@ GEM
       oa-more (= 0.2.6)
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
+    paperclip (2.3.15)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.3.2)
@@ -225,6 +237,7 @@ GEM
     uglifier (1.0.0)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    xml-simple (1.1.0)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -232,6 +245,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-s3
   bson_ext (>= 1.3.1)
   capybara (>= 1.0.0)
   coffee-rails (~> 3.1.0.rc)
@@ -243,6 +257,7 @@ DEPENDENCIES
   jquery-rails
   launchy (>= 0.4.0)
   mongoid (>= 2.0.2)
+  mongoid-paperclip
   mongoid-rspec (>= 1.4.4)
   omniauth (>= 0.2.6)
   rails (= 3.1.0.rc5)
