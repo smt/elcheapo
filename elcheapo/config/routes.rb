@@ -5,6 +5,7 @@ Elcheapo::Application.routes.draw do
 
   resources :users, :only => :show
 
+  resources :messages
 
   root :to => "home#index"
 
