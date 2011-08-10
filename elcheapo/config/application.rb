@@ -52,5 +52,7 @@ module Elcheapo
 
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    config.mongoid.preload_models = true
   end
 end

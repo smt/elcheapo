@@ -7,7 +7,7 @@ Elcheapo::Application.routes.draw do
 
   resources :messages
 
-  root :to => "home#index"
+  root :to => "messages#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

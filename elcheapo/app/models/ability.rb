@@ -8,6 +8,7 @@ class Ability
       can :manage, :all 
     else
       can :read, :all #if user.role? :user
+      can :create, Message
     end
   end
 end
