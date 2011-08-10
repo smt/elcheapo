@@ -37,6 +37,7 @@ class MessagesController < AuthorizedController
   # POST /messages.json
   def create
     respond_to do |format|
+      @message.user_id = current_user.id
       if @message.save
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render json: @message, status: :created, location: @message }

@@ -12,6 +12,8 @@
         %header
           %nav
             %ul
+              %li
+                = link_to('New message', root_path)
               = render 'devise/menu/registration_items'
               = render 'devise/menu/login_items'
           - flash.each do |name, msg|

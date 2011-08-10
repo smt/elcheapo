@@ -1,18 +1,16 @@
+%h1= @user.name
 %p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+  = @user.email if @user.email
 
 - if @messages
-  - from_time = DateTime.now.utc
+  - from_time = Time.now.utc
+  %h2 Messages:
   %ul
     - @messages.each do |message|
       %li
-        = message.content
+        = link_to message.content, message
         - if message.expires_at > from_time
-          expires in
-          = distance_of_time_in_words_to_now(message.expires_at)
-          = link_to 'Show', message
-          = link_to 'Edit', edit_message_path, {:id => message.id}
+          (expires in #{distance_of_time_in_words_to_now(message.expires_at)})
+          = link_to 'Edit', edit_message_path(message.id)
         - else
-          expired!
+          (expired!)

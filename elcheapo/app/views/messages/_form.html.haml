@@ -11,5 +11,10 @@
     %br/
     = f.text_area :content, :size => "60x5"
 
+  %p
+    = f.label :expires_at, "Expires:"
+    %br/
+    = f.select :expires_at, Message::EXPIRATION_OPTIONS.map { |exp| [ exp[:text], Time.now.utc + exp[:value] ] }
+
   .actions
     = f.submit "Save"
