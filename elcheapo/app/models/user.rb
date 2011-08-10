@@ -24,7 +24,7 @@ class User
 
   validates_presence_of :name, :email
   validates_uniqueness_of :name, :email, :case_sensitive => false
-  validates_format_of :email, :with => /\@empathylab\.com^/, :message => "You must be an employee of Empathy Lab."
+  validates_format_of :email, :with => /empathylab\.com/, :message => "must be an Empathy Lab address."
 
   before_validation :userify
 
@@ -37,7 +37,8 @@ class User
   protected
 
   def userify
-    self.username = email.split("@")[0] if self.username.blank?
+    usar = email.split("@")[0]
+    self.username = usar if self.username != usar
   end
 end
 

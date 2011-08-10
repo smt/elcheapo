@@ -1,5 +1,7 @@
-%h1 New message
+- if user_signed_in?
+  %h1 New message
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Back', messages_path
+  = link_to 'Back', messages_path
+

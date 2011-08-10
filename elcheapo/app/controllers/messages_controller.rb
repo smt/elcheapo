@@ -1,10 +1,9 @@
-class MessagesController < ApplicationController
-  load_and_authorize_resource
-
+class MessagesController < AuthorizedController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.queue
+    #@messages = Message.queue
+    @messages = Message.all
 
     respond_to do |format|
       format.html # index.html.erb

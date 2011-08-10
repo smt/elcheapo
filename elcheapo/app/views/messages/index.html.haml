@@ -8,6 +8,8 @@
 
   - @messages.each do |message|
     %tr
+      %td= message.id
+      %td= message.content
       %td= link_to 'Show', message
       %td= link_to 'Edit', edit_message_path(message)
       %td= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete

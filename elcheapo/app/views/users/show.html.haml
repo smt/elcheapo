@@ -2,3 +2,17 @@
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+
+- if @messages
+  - from_time = DateTime.now.utc
+  %ul
+    - @messages.each do |message|
+      %li
+        = message.content
+        - if message.expires_at > from_time
+          expires in
+          = distance_of_time_in_words_to_now(message.expires_at)
+          = link_to 'Show', message
+          = link_to 'Edit', edit_message_path, {:id => message.id}
+        - else
+          expired!
