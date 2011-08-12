@@ -6,7 +6,7 @@ class Message
   #embeds_many :pictures
 
   field :content
-  field :message_type
+  field :category
   field :alert, :type => Boolean
   field :sticky, :type => Boolean
   field :promoted, :type => Boolean
@@ -18,9 +18,9 @@ class Message
   # queue should contain all sticky and unexpired messages
   scope :queue, any_of({ sticky: true }, { :expires_at.gte => Time.now.utc }).desc(:alert, :sticky, :promoted, :updated_at)
 
-  attr_accessible :message_type, :title, :content, :alert, :sticky, :promoted, :expires_at
+  attr_accessible :category, :title, :content, :alert, :sticky, :promoted, :expires_at
 
-  validates_presence_of :content
+  validates_presence_of :content, :category
 
   TYPES = %w[client internal] # use 'system' for automated messages
   EXPIRATION_OPTIONS = [
@@ -29,9 +29,14 @@ class Message
     { :text => "1 week",  :value => 3600*24*7 },
     { :text => "1 month", :value => 3600*24*30 }
   ]
+  CATEGORY_OPTIONS = [
+    "Announcement",
+    "Client Win",
+    "Project Highlight"
+  ]
 
   def self.cache_hashtag_tweets
-    logger.info "Caching tweets!"
+    puts "Caching tweets!"
     Message.create({:content => "I am a system-generated message!"})
   end
 

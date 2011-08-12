@@ -31,7 +31,8 @@ describe MessagesController do
   # update the return value of this method accordingly.
   def valid_attributes
     {
-      :content => "Wow, this testing thing is starting to get to me."
+      :content => "Wow, this testing thing is starting to get to me.",
+      :category => "Oh noes"
     }
   end
 

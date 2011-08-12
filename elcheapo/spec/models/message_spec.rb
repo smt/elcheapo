@@ -8,7 +8,8 @@ describe Message do
 
     @attr = {
       :content => "This is my test content. It is awesome.",
-      :exires_at => Time.now.utc + 3600*24
+      :exires_at => Time.now.utc + 3600*24,
+      :category => "Pootown"
     }
   end
 

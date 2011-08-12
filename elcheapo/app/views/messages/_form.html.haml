@@ -7,6 +7,11 @@
           %li= msg
 
   %p
+    = f.label :category, "Category:"
+    %br/
+    = f.select :category, Message::CATEGORY_OPTIONS.map { |c| [ c, c ] }
+
+  %p
     = f.label :content, "Enter your message:"
     %br/
     = f.text_area :content, :size => "60x5"
@@ -14,7 +19,7 @@
   %p
     = f.label :expires_at, "Expires:"
     %br/
-    = f.select :expires_at, Message::EXPIRATION_OPTIONS.map { |exp| [ exp[:text], Time.now.utc + exp[:value] ] }
+    = f.select :expires_at, Message::EXPIRATION_OPTIONS.map { |e| [ e[:text], Time.now.utc + e[:value] ] }
 
   .actions
     = f.submit "Save"
