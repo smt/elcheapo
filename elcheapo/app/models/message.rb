@@ -30,4 +30,9 @@ class Message
     { :text => "1 month", :value => 3600*24*30 }
   ]
 
+  def self.cache_hashtag_tweets
+    logger.info "Caching tweets!"
+    Message.create({:content => "I am a system-generated message!"})
+  end
+
 end

@@ -3,6 +3,8 @@ Elcheapo::Application.routes.draw do
 
   devise_for :users
 
+  resources :home, :only => :index
+
   resources :users, :only => :show
 
   resources :messages

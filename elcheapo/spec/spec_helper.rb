@@ -36,4 +36,5 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.extend ControllerMacros, :type => :controller
 end

@@ -20,26 +20,32 @@ require 'spec_helper'
 
 describe MessagesController do
 
+  before (:each) do
+    @user = Factory(:user)
+    sign_in @user
+    @message = Factory(:message)
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Message. As you add validations to Message, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :content => "Wow, this testing thing is starting to get to me."
+    }
   end
 
   describe "GET index" do
     it "assigns all messages as @messages" do
-      message = Message.create! valid_attributes
       get :index
-      assigns(:messages).should eq([message])
+      assigns(:messages).should eq([@message])
     end
   end
 
   describe "GET show" do
     it "assigns the requested message as @message" do
-      message = Message.create! valid_attributes
-      get :show, :id => message.id.to_s
-      assigns(:message).should eq(message)
+      get :show, :id => @message.id.to_s
+      assigns(:message).should eq(@message)
     end
   end
 
@@ -52,9 +58,8 @@ describe MessagesController do
 
   describe "GET edit" do
     it "assigns the requested message as @message" do
-      message = Message.create! valid_attributes
-      get :edit, :id => message.id.to_s
-      assigns(:message).should eq(message)
+      get :edit, :id => @message.id.to_s
+      assigns(:message).should eq(@message)
     end
   end
 
