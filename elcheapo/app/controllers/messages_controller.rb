@@ -2,8 +2,7 @@ class MessagesController < AuthorizedController
   # GET /messages
   # GET /messages.json
   def index
-    #@messages = Message.queue
-    @messages = Message.all
+    @messages = params[:all] ? Message.all : Message.queue
 
     respond_to do |format|
       format.html # index.html.erb

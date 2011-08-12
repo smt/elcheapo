@@ -8,6 +8,7 @@ Factory.define :user do |u|
   u.role 'user'
 end
 
-Factory.define :message do |u|
-  u.content 'Lorem ipsum.'
+Factory.define :message do |m|
+  m.content 'Lorem ipsum.'
+  m.expires_at Time.now.utc + 3600
 end
